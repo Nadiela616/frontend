@@ -1,4 +1,5 @@
 import Header from '../components/Header.js';
+import Footer from '../components/Footer.js';
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -52,6 +53,7 @@ export default function LogIn(){
             <button type="submit" name="submit">Enter</button>
             {error?<p>Username or password invalid!</p>:null}
          </form>
+     <Footer />     
       </div>
     );
   

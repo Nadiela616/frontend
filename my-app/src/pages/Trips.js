@@ -1,4 +1,5 @@
 import Header from "../components/Header.js";
+import Footer from '../components/Footer.js';
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import "../App.css";
@@ -99,6 +100,7 @@ showTrips();
                 </tbody>
             </table>
             </div>
+            <Footer />
         </div>   
     )
 }

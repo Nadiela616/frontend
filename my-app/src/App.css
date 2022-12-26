@@ -2,17 +2,10 @@
   text-align: center;
 }
 body {
-  background-color: beige;
-  background-image: url("./login.jpg");
+  background-color: white;
+  
 }
-#menu {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  text-decoration: none;
-  margin-right: 50px;
-}
+
 #login {
   text-align: center;
   font-size: 18px;
@@ -23,7 +16,7 @@ body {
   font-size: 18px;
   color: red;
 }
-#username {
+#email {
   width: 20%;
   margin-left: 40%;
 }
@@ -89,3 +82,27 @@ table, th, td{
   font-weight: bold;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+#menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+
+
+.footer {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+
