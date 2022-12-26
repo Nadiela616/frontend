@@ -1,4 +1,5 @@
 import Header from "../components/Header.js";
+import Footer from '../components/Footer.js';
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import "../App.css";
@@ -46,6 +47,7 @@ export default function Trips(){
                 </form>
             <div id="container">
             </div>
+            <Footer />
         </div>   
     )
 }
