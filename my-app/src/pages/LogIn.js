@@ -31,11 +31,8 @@ export default function LogIn(){
     if(response.ok) {
         const user_id = data.id;
         window.localStorage.setItem("user_id", user_id);
-        // window.location.pathname = '/trips';
         navigate('/trips')
         console.log(data);
-        
-        // setUser(data);
     }
     else {
       
