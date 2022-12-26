@@ -13,6 +13,7 @@ export default function LogIn(){
    if(checkUser){
     navigate("/trips")
    }
+   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -34,25 +35,24 @@ export default function LogIn(){
         navigate('/trips')
         console.log(data);
     }
-    else {
-      
+    else { 
         setError(data);
     }
   };
     return (
-      <div className="app-title">
-        <Header />
-        <form id="login" onSubmit={onSubmit}>
-        <h1>Login</h1>
-        <label htmlFor='email'>Email</label>
-        <input type="email" id="email" name="email" placeholder="Choose your username" required/>
-        <label htmlFor='password' >Password:</label>
-        <input type="password" id="password" name="password" placeholder="Choose your password" required/>
-        <p>You're not a user yet? <Link to={"/sign-up"}>Sign up</Link></p>
-        <button type="submit" name="submit">Enter</button>
-        {error?<p>Username or password invalid!</p>:null}
-        </form>
+     <div className="app-title">
+          <Header />
+           <h1>Login</h1>
+          <form id="login" onSubmit={onSubmit}>
+            <label htmlFor='email'>Email</label>
+            <input type="email" id="email" name="email" placeholder="Choose your username" required/>
+            <label htmlFor='password' >Password:</label>
+            <input type="password" id="password" name="password" placeholder="Choose your password" required/>
+            <p>You're not a user yet? <Link to={"/sign-up"}>Sign up</Link></p>
+            <button type="submit" name="submit">Enter</button>
+            {error?<p>Username or password invalid!</p>:null}
+         </form>
       </div>
     );
-    
+  
 }

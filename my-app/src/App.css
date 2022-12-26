@@ -1,38 +1,91 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: beige;
+  background-image: url("./login.jpg");
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#menu {
+  list-style: none;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: row;
+  justify-content: space-between;
+  text-decoration: none;
+  margin-right: 50px;
+}
+#login {
+  text-align: center;
+  font-size: 18px;
+  display: grid;
+}
+#error_p {
+  text-align: center;
+  font-size: 18px;
+  color: red;
+}
+#username {
+  width: 20%;
+  margin-left: 40%;
+}
+#password {
+  width: 20%;
+  margin-left: 40%;
+}
+button {
+  width: 20%;
+  margin-left: 40%;
+  height: 30px;
+  background-color: green;
   color: white;
+  border-color: none;
+  margin-top: 20px;
 }
-
-.App-link {
-  color: #61dafb;
+#signup {
+  text-align: center;
+  font-size: 18px;
+  display: grid;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#trips {
+  text-align: center;
+}
+h1, h2 {
+  text-align: center;
+}
+#table {
+  text-align: center;
+  font-size: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: aliceblue;
+  border: 3px solid brown;
+  margin-top: 40px;
+}
+table, th, td{
+  text-align: center;
+  align-self: center;
+  background-color: indianred;
+  border: 2px solid brown;
+  border-collapse: collapse;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 40px;
+}
+#container {
+  align-content: center;
+}
+.btn-update {
+  background-color: rgb(245, 224, 179);
+  color : brown;
+  border: 2px solid brown;
+  width: 5em;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.btn-delete {
+  background-color: rgb(245, 224, 179);
+  color: brown;
+  border: 2px solid brown;
+  width: 5em;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
