@@ -5,6 +5,7 @@ import SignUp from './pages/SignUp.js';
 import LogIn from './pages/LogIn.js';
 import Trips from './pages/Trips.js';
 import Update from './pages/Update.js';
+import Map from './pages/Map.js';
 
 function App() {
  return (
@@ -12,7 +13,9 @@ function App() {
       <Routes>
         <Route path='/sign-up' element={<SignUp/>}></Route>
         <Route path='/log-in' element={<LogIn/>}></Route>
+        <Route path='/map' element={<Map/>}></Route>
         <Route path='/trips' element={<Trips/>}></Route>
+        <Route path='/map' element={<Map/>}></Route>
         <Route path='/update' element={<Update/>}></Route>
       </Routes>
     </BrowserRouter>

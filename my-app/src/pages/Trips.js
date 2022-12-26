@@ -20,11 +20,11 @@ export default function Trips(){
         const formData = new FormData(form);
         const user_id = Number(window.localStorage.getItem("user_id"));
         const date = formData.get("date");
-        const vacation = formData.get("vacation");
+        const destination = formData.get("destination");
         const days = formData.get("days");
         const rating = formData.get("rating");
-        const values = { date, vacation, days, rating, user_id};
-        const response = await fetch(`http://localhost:4000/api/trips/${user_id}`, {
+        const values = { date, destination, days, rating, user_id};
+        const response = await fetch(`http://localhost:4000/api/${user_id}/trips`, {
             method: 'POST', headers: {
                 'Content-Type': 'application/json'
             }, body: JSON.stringify(values)
@@ -35,7 +35,7 @@ export default function Trips(){
 };
 async function showTrips() {
     const user_id = Number(window.localStorage.getItem("user_id"));
-    const response = await fetch(`http://localhost:4000/api/trips/${user_id}`);
+    const response = await fetch(`http://localhost:4000/api/${user_id}/trips`);
     const data = await response.json();
     setTable(data);      
 }   
@@ -64,8 +64,8 @@ showTrips();
                 <form id="trips" onSubmit={onSubmit}>
                 <label>Date</label>
                 <input type="date" name="date" placeholder="Select a date"/>
-                <label>Vacation</label>
-                <input type="text" name="vacation" placeholder="Select a Vacation"/>
+                <label>Destination</label>
+                <input type="text" name="destination" placeholder="Select a Destination"/>
                 <label>Days</label>
                 <input type="number" name="days" placeholder="Select the number of days" min="1"/>
                 <label>Rating</label>
@@ -78,10 +78,10 @@ showTrips();
                     <tr>
                     <th>ID</th>
                     <th>Date</th>
-                    <th>Vacation</th>
+                    <th>Destination</th>
                     <th>Days</th>
                     <th>Rating</th>
-                    <th>UserId</th>
+                    <th>UserID</th>
                     <th>Update trips</th>
                     <th>Delete trips</th>
                     </tr>
@@ -89,10 +89,10 @@ showTrips();
                         <tr key={index}>
                             <td>{item.id}</td>
                             <td>{item.date}</td>
-                            <td>{item.vacation}</td>
+                            <td>{item.destination}</td>
                             <td>{item.days}</td>
                             <td>{item.rating}</td>
-                            <td>{item.userId}</td>
+                            <td>{item.userID}</td>
                             <td><button id = {item.id} className="btn-update" onClick={onUpdate}>Update</button></td>
                             <td><button id = {item.id} className="btn-delete" onClick={onDelete}>Delete</button></td>
                         </tr>

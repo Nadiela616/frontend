@@ -24,7 +24,7 @@ export default function LogIn(){
     const password = formData.get("password");
     const values = { email, password };
   
-    const response = await fetch('http://localhost:4000/api/sign-in', {
+    const response = await fetch('http://localhost:4000/api/log-in', {
         method: 'POST', headers: {
             'Content-Type': 'application/json; charset=utf-8 '
         }, body: JSON.stringify(values)
@@ -41,19 +41,23 @@ export default function LogIn(){
     }
   };
     return (
-     <div className="app-title">
-          <Header />
-           <h1>Login</h1>
-          <form id="login" onSubmit={onSubmit}>
-            <label htmlFor='email'>Email</label>
-            <input type="email" id="email" name="email" placeholder="Choose your username" required/>
-            <label htmlFor='password' >Password:</label>
-            <input type="password" id="password" name="password" placeholder="Choose your password" required/>
-            <p>You're not a user yet? <Link to={"/sign-up"}>Sign up</Link></p>
-            <button type="submit" name="submit">Enter</button>
-            {error?<p>Username or password invalid!</p>:null}
-         </form>
-     <Footer />     
+     <div>
+       <Header />
+         <div className="container">  
+         <div className="box">
+        <h1>Login</h1>
+        <form id="login" onSubmit={onSubmit}>
+          <label htmlFor='email'>Email</label>
+          <input type="email" id="email" name="email" placeholder="Choose your username" required/>
+          <label htmlFor="password">Password:</label>
+          <input type="password" id="password" name="password" placeholder="Choose your password" required/>
+          <p>You're not a user yet? <Link to={"/sign-up"}>Sign up</Link></p>
+          <button type="submit" name="submit">Enter</button>
+          {error?<p>Username or password invalid!</p>:null}
+        </form>
+        </div>
+        </div>
+        <Footer />     
       </div>
     );
   

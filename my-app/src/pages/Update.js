@@ -14,10 +14,10 @@ export default function Trips(){
         const user_id = Number(window.localStorage.getItem("user_id"));
         const trip_id = Number(window.localStorage.getItem("trip_id"));
         const date = formData.get("date");
-        const vacation = formData.get("vacation");
+        const destination = formData.get("destination");
         const days = formData.get("days");
         const rating = formData.get("rating");
-        const values = { date, vacation, days, rating, user_id};
+        const values = { date, destination, days, rating, user_id};
         const response = await fetch(`http://localhost:4000/api/trips/${trip_id}`, {
             method: 'PUT', headers: {
                 'Content-Type': 'application/json'
@@ -37,8 +37,8 @@ export default function Trips(){
                 <form id="trips" onSubmit={onSubmit}>
                 <label>Date</label>
                 <input type="date" name="date" placeholder="Select a date"/>
-                <label>Vacation</label>
-                <input type="text" name="vacation" placeholder="Select a Vacation"/>
+                <label>Destination</label>
+                <input type="text" name="destination" placeholder="Select a destination"/>
                 <label>Days</label>
                 <input type="number" name="days" placeholder="Select the number of days" min="1"/>
                 <label>Rating</label>

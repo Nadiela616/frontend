@@ -40,8 +40,10 @@ export default function SignUp(){
        }
     }
     return (
-        <div className="app-title">
+        <div>
            <Header />
+           <div className="container">
+            <div className="box">
            <h1>Sign up</h1>
             <form id="signup" onSubmit={onSubmit}>
                 <label htmlFor="email">Email*</label>
@@ -52,6 +54,8 @@ export default function SignUp(){
                 <button type="submit" className="button_submit" name="submit">Create account</button>
                 {error?<p>Username or password invalid!</p>:null}
            </form>
+           </div>
+           </div>
            <Footer />
         </div>
 
