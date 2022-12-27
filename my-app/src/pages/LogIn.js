@@ -56,8 +56,8 @@ export default function LogIn(){
           {error?<p>Username or password invalid!</p>:null}
         </form>
         </div>
-        </div>
-        <Footer />     
+        </div> 
+           <Footer />     
       </div>
     );
   
