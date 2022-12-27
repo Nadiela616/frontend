@@ -1,7 +1,11 @@
 import "../styles.css";
+import Header from "../components/Header.js";
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useState } from "react";
+import { Icon } from "leaflet";
+import Footer from "../components/Footer";
+
 
 export default function App() {
   const [coordinates, setCoordinates] = useState([]);
@@ -28,27 +32,43 @@ export default function App() {
 
   return (
     <div>
-      <form id="form" onSubmit={getCoordinates}>
-        <label>
-          <span>Destination:</span>
-          <input
-            type="text"
-            name="destination"
-            placeholder="Adress/point of interest"
-          />
-        </label>
-        <button type="submit">Find coordinates</button>
-      </form>
+      <Header />
+
       <div className="map-container">
+      
         <MapContainer center={[51.505, -0.09]} zoom={3} scrollWheelZoom={false}>
+
           <TileLayer url="https://{s}.tile.osm.org/{z}/{x}/{y}.png" />
+          <div  className="button-container">
+        <div className="button-block">
+          <div className="button-map" >
+            <button>Map</button>
+          </div>
+          <div className="button-table">
+            <button>Table</button>
+          </div>
+          </div>
+        </div>
           {coordinates.map(({ lat, lon, destination }, index) => (
             <Marker key={index} position={[lat, lon]}>
-              <Popup>{destination}</Popup>
+              <Popup>
+                <div className="map-card">
+                  <div className="card-header">
+                    <p className="p14">10-2022</p>
+                    <p className="p14">5 days</p>
+                  </div>
+                  <div className="card-body">
+                    <h3 id="card-country">France</h3>
+                    <h1 id="card-city">{destination}</h1>
+                    <p id="card-p">Paris is fantastic, but cold as hell.</p>
+                  </div>
+                </div>
+              </Popup>
             </Marker>
           ))}
         </MapContainer>
       </div>
+      <Footer />
     </div>
   );
 }

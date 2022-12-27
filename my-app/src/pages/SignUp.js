@@ -13,7 +13,7 @@ export default function SignUp(){
         if(checkUser){
          navigate("/trips")
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        
        },[])
      const navigate = useNavigate();
      const onSubmit = async (event) => {
@@ -45,7 +45,8 @@ export default function SignUp(){
            <div className="container">
             <div className="box">
            <h1>Sign up</h1>
-            <form id="signup" onSubmit={onSubmit}>
+
+            {/* <form id="signup" onSubmit={onSubmit}>
                 <label htmlFor="email">Email*</label>
                 <input type="email" id="email" name="email" placeholder="Choose your email" minLength="5" maxLength="20"  required />
                 <label htmlFor="password">Password</label>
@@ -53,7 +54,18 @@ export default function SignUp(){
                 <p>Are you already a user? <Link to={"/log-in"}>Login</Link></p>
                 <button type="submit" className="button_submit" name="submit">Create account</button>
                 {error?<p>Username or password invalid!</p>:null}
-           </form>
+           </form> */}
+           <div className='form-container'>
+                <form  onSubmit={onSubmit}>                  
+                    <label htmlFor='email'>Email*</label>
+                    <input type="email" className='input' id="email" placeholder="Choose your email" minLength="5" maxLength="20"  required/>                  
+                    <label htmlFor="password">Password:</label>
+                    <input type="password" className='input' id="password" name="password" placeholder="Choose your password" pattern="(?=.*\d)(?=.*[!?.:]).{5,20}" title="Must contain at least one number and one special character, and 5-20 characters"/>
+                    <p className='input'>Are you already a user? <Link to={"/log-in"}>Login</Link></p>
+                    <button  type="submit" id="form-button" name="submit">Create Account</button>
+                    {error?<p>Username or password invalid!</p>:null}                  
+                </form>
+              </div>
            </div>
            </div>
            <Footer />

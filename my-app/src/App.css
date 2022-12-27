@@ -1,11 +1,104 @@
 *{
 padding: 0%;
 margin: 0;
+font-family: 'League Spartan', sans-serif;
+font-size: 16px;
+}
+
+
+h1{
+  font-size: 24px;
+}
+
+h2{
+  font-size: 18px;
+}
+h3{
+  font-size: 16px;
+}
+
+.p14{
+  font-size: 14px;
+}
+.p12{
+  font-size: 12px;
+}
+.p10{
+  font-size: 10px;
+}
+
+.map-card{
+gap: 8px;
+width: 253px;
+height: 184px;
+background: #FFFFFF;
+border-radius: 20px;
+}
+
+.card-header{
+  display: flex;  
+  flex-direction: row;  
+  gap: 126px;
+  width: 221px;
+  height: 17px;
+}
+
+.map-container{
+  height: 100vh;
+  
+}
+
+.card-body{
+  display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 25px;
+}
+
+#card-country{
+  color: #FF6969;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+#card-city{
+/* font-family: 'Spartan'; */
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 120%;
+
+/* identical to box height, or 29px */
+text-align: center;
+letter-spacing: 0.261442px;
+
+/* black */
+color: #2B2B2B;
+}
+
+#card-p{
+  width: 169px;
+height: 34px;
+
+/* p14/medium */
+
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 120%;
+
+/* or 17px */
+text-align: center;
+letter-spacing: 0.2px;
+
+/* Gray 2 */
+color: #4F4F4F;
+
 
 
 }
 
- .App {
+.App {
   text-align: center;
 }
 body {
@@ -16,16 +109,51 @@ body {
 .header{
 width: 100%;
 height: 60px;
-background-color: #E2E5E6;
+background-color: #ffffff;
+/* padding: 20px 20px 20px 20px; */
+}
+.header-text{
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+  padding-left: 50px;
+  color: #2B2B2B;
+}
 
+.icons{
+  position: relative;
+  left: 75%;
+  top: 16%;
+  bottom: 48%;
+}
+
+#logo-span{
+  font-weight: 200;
+  font-size: 26px;
+  
 }
 
 
+.button-block{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: center;
+}
+
+.button-container{
+
+display: block;
+margin-bottom: -60px;
+}
+
 .container {
   display: flex;
- align-items: center;
-width: 100%;
-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
 }
 .box {
   background-color: white;
@@ -43,6 +171,7 @@ height: 100vh;
   font-size: 18px;
   display: grid;
 }
+
 #error_p {
   text-align: center;
   font-size: 18px;
@@ -90,6 +219,8 @@ input {
   border: 3px solid brown;
   margin-top: 40px;
 }
+
+
 table, th, td{
   text-align: center;
   align-self: center;
@@ -109,13 +240,27 @@ table, th, td{
   display: grid;
   align-items: center;
 }
-#login {
-  width: max-content;
-  margin-right: 200px ;
-  width: 250px;
+#form-button{
+  width: 380px;
+  margin-left: 40%;
   font-size: 18px;
-  display: grid;
-  align-items: center;
+  height: 30px;
+  background-color: black;
+  color: white;
+  border-color: none;
+  border-radius: 8px;  
+  height: 41px;
+  margin-left: 260px;
+}
+.form-container {
+  width: 350px;
+  margin-right: 200px;
+  margin-top: 30px;  
+}
+
+.input{  
+  width: 350px;
+  margin-left: 260px;
 }
 #container {
   align-content: center;
@@ -153,6 +298,10 @@ table, th, td{
   Width: 100%;
   Height :34px;
   background: #303030;
+  color: #F5F5F5;
+  display: flex;
+  flex-direction: column;
+  align-items:center ;
 }
 
 

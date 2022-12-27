@@ -54,7 +54,12 @@ async function onDelete(event) {
     window.alert("Trip deleted!");
 }
 
-showTrips();
+React.useEffect(() =>{
+ showTrips();   
+
+},[] )
+
+
 
     return(
         <div>
