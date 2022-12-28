@@ -1,11 +1,16 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import '../App.css'
 import { CgProfile } from 'react-icons/cg';
 import { RxExit } from 'react-icons/rx';
 
 export default function Header() {
+    const navigate = useNavigate();
     function clearStorage() {
-        window.localStorage.clear()
+        window.localStorage.clear() 
+        navigate("/log-in");
+    }
+    function nav(){
+        navigate("/settings-profile");
     }
     return (
         <div className='header'>
@@ -13,8 +18,8 @@ export default function Header() {
                 <h1>My trips <span id='logo-span'> diary</span> </h1>
                 <div className='icons'>
                     <Link to={"/trips"}> My trips </Link>
-                    <CgProfile size={25} />
-                    <RxExit size={25} />
+                    <CgProfile size={25} onClick={nav} />
+                    <RxExit size={25} onClick={clearStorage}/>
                 </div>
             </div>
         </div>

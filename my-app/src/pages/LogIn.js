@@ -49,7 +49,7 @@ export default function LogIn(){
               <div className='form-container'>
                 <form  onSubmit={onSubmit}>                  
                     <label htmlFor='email'>Email</label>
-                    <input type="email" className='input' id="email" name="email" placeholder="Choose your username" required/>                  
+                    <input type="email" className='input' id="email" name="email" placeholder="Choose your email" required/>                  
                     <label htmlFor="password">Password:</label>
                     <input type="password" className='input' id="password" name="password" placeholder="Choose your password" required/>
                     <p className='input'>You're not a user yet? <Link to={"/"}>Sign up</Link></p>
