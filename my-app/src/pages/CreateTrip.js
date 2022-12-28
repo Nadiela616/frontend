@@ -4,7 +4,7 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 import "../App.css";
 
-export default function CreateTrip(){
+export default function CreateTrip() {
     const navigate = useNavigate();
     const [coordinates, setCoordinates] = React.useState([]);
     React.useEffect(()=>{
@@ -30,28 +30,28 @@ export default function CreateTrip(){
                 }, body: JSON.stringify(values)
             })
             const data = await response.json();
-            console.log(data);    
-           
-            } 
-            const getCoordinates = async (event) => {
-                event.preventDefault();
-                const form = event.target;
-                const formData = new FormData(form);
-                const destination = formData.get("destination"); 
-                const response = await fetch(
+            console.log(data);  
+            
+        }
+        const putCoordinates = async (event) => {
+                
+            const destination = event.target.value;
+  
+                const response_des = await fetch(
                 `https://nominatim.openstreetmap.org/search?format=json&q=${destination}`
               );
-            const data = await response.json();   
-            if (data.length > 0) {
-            const trip = {
-                lat: data[0].lat,
-                lon: data[0].lon,
-                destination
-            };
-            const nextState = [...coordinates, trip];
+            const data_des= await response_des.json();   
+            if (data_des.length > 0) {
+            const trip = [
+                data_des[0].lat,
+                data_des[0].lon,
+            ];
+            console.log(data_des);
+            const nextState = trip;
             setCoordinates(nextState);
-            }
- };
+            
+        };
+    }
     return(
         <div>
             <Header />
@@ -63,19 +63,17 @@ export default function CreateTrip(){
                     <label>Date</label>
                     <input type="date" name="date" placeholder="Select a date"/>
                     <label>Destination</label>
-                    <input type="text" name="destination" placeholder="Choose the place..."/>
+                    <input type="text" name="destination" placeholder="Choose the place..." onChange={putCoordinates}/>
                     <label>Description</label>
-                    <input type="text" name="description" placeholder="How was the trip" onChange={getCoordinates}/>
+                    <input type="text" name="description" placeholder="How was the trip"/>
                     <label>Days</label>
                     <input type="number" name="days" placeholder="How many days?" min="1"/>
                     <label>Rating</label>
                     <input type="number" name="rating" placeholder="Rating" min="1" max="5"/>
-                    navigator.geolocation.getCurrentPosition(function(destination)
                     <label>Lat</label>
-                    <input value={destination.coords.latitude} type="number" name="latitude" placeholder="lat" readOnly/>
+                    <input value={coordinates[0]} type="text" name="latitude" placeholder="lat" readOnly/>
                     <label>Long</label>
-                    <input value={destination.coords.longitude} type="number" name="longitude" placeholder="long" readOnly/>
-                    )
+                    <input value={coordinates[1]} type="text" name="longitude" placeholder="long" readOnly/>
                     <button id="cancel-btn" className="cancel" type="cancel">Cancel</button>
                     <button id="btn" className = "buttons" type="submit" name="submit">Create</button>
                 </form>
