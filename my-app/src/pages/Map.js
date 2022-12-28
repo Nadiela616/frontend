@@ -3,7 +3,7 @@ import Header from "../components/Header.js";
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useState } from "react";
-import { Icon } from "leaflet";
+// import { Icon } from "leaflet";
 import Footer from "../components/Footer";
 
 

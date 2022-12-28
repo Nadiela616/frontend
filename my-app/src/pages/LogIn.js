@@ -52,7 +52,7 @@ export default function LogIn(){
                     <input type="email" className='input' id="email" name="email" placeholder="Choose your username" required/>                  
                     <label htmlFor="password">Password:</label>
                     <input type="password" className='input' id="password" name="password" placeholder="Choose your password" required/>
-                    <p className='input'>You're not a user yet? <Link to={"/sign-up"}>Sign up</Link></p>
+                    <p className='input'>You're not a user yet? <Link to={"/"}>Sign up</Link></p>
                     <button  type="submit" id="form-button" name="submit">Enter</button>
                     {error?<p>Username or password invalid!</p>:null}                  
                 </form>
