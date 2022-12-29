@@ -3,6 +3,8 @@ import Footer from '../components/Footer.js';
 import React from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import "../App.css";
+import { RiPencilFill } from 'react-icons/ri';
+import {MdDelete} from 'react-icons/md';
 
 export default function Trips(){
     const [table, setTable] = React.useState([]);
@@ -68,8 +70,9 @@ React.useEffect(() =>{
                             <td>{item.days}</td>
                             <td>{item.rating}</td>
                             <td>{item.userID}</td>
-                            <td><button id = {item.id} className="btn-update" onClick={onUpdate}>Update</button></td>
-                            <td><button id = {item.id} className="btn-delete" onClick={onDelete}>Delete</button></td>
+                            <td>< RiPencilFill size ={18} onClick={onUpdate} /></td>
+                            <td>< MdDelete size={18}  onClick={onDelete}  /></td>
+                            
                         </tr>
                     ))}
                 </tbody>

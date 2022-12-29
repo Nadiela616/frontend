@@ -3,6 +3,7 @@ import '../App.css'
 import { CgProfile } from 'react-icons/cg';
 import { RxExit } from 'react-icons/rx';
 
+
 export default function Header() {
     const navigate = useNavigate();
     function clearStorage() {

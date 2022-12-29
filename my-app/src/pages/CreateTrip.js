@@ -60,22 +60,42 @@ export default function CreateTrip() {
                 <p>You must fill all mandatory fields.</p>
             </div>
                 <form id="trips" onSubmit={onSubmit}>
-                    <label>Date</label>
+                    <label>Date * </label>
                     <input type="date" name="date" placeholder="Select a date"/>
-                    <label>Destination</label>
+                    <label>Destination *</label>
                     <input type="text" name="destination" placeholder="Choose the place..." onChange={putCoordinates}/>
-                    <label>Description</label>
+                    <label>Description *</label>
                     <input type="text" name="description" placeholder="How was the trip"/>
-                    <label>Days</label>
+                    <div className="row">
+                        <div className="column">
+                    <label>Days *</label>
                     <input type="number" name="days" placeholder="How many days?" min="1"/>
-                    <label>Rating</label>
+                    </div>
+                    <div className="column">
+                    <label>Rating *</label>
                     <input type="number" name="rating" placeholder="Rating" min="1" max="5"/>
-                    <label>Lat</label>
+                    </div>
+                    </div>
+                    <div className="row">
+                        <div className="column">
+                        <label>Lat *</label>
                     <input value={coordinates[0]} type="text" name="latitude" placeholder="lat" readOnly/>
-                    <label>Long</label>
+                    </div>
+                    <div className="column">
+                    <label>Long *</label>
                     <input value={coordinates[1]} type="text" name="longitude" placeholder="long" readOnly/>
+                    </div>
+                    </div>
+                    <div className="buttonTrips">
+                        <div className="buttonCol">
                     <button id="cancel-btn" className="cancel" type="cancel">Cancel</button>
+                    </div>
+                    </div>
+                    <div className="buttonTrips">
+                        <div className="buttonCol">
                     <button id="btn" className = "buttons" type="submit" name="submit">Create</button>
+                 </div>
+                 </div>
                 </form>
             <Footer />
         </div>   
