@@ -36,16 +36,16 @@ export default function App() {
 
       <div className="map-container">
       
-        <MapContainer center={[51.505, -0.09]} zoom={3} scrollWheelZoom={false}>
+        <MapContainer center={[51.505, -0.09]} zoom={3} scrollWheelZoom={false} id="mapcontainer">
 
           <TileLayer url="https://{s}.tile.osm.org/{z}/{x}/{y}.png" />
           <div  className="button-container">
         <div className="button-block">
           <div className="button-map" >
-            <button>Map</button>
+            <button type="button">Map</button>
           </div>
           <div className="button-table">
-            <button>Table</button>
+            <button type="button">Table</button>
           </div>
           </div>
         </div>

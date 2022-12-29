@@ -10,7 +10,7 @@ export default function Header() {
         window.localStorage.clear() 
         navigate("/log-in");
     }
-    function nav(){
+    function gotoSettings(){
         navigate("/settings-profile");
     }
     return (
@@ -19,7 +19,7 @@ export default function Header() {
                 <h1>My trips <span id='logo-span'> diary</span> </h1>
                 <div className='icons'>
                     <Link to={"/trips"}> My trips </Link>
-                    <CgProfile size={25} onClick={nav} />
+                    <CgProfile size={25} onClick={gotoSettings} />
                     <RxExit size={25} onClick={clearStorage}/>
                 </div>
             </div>

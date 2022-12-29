@@ -142,12 +142,16 @@ background-color: #ffffff;
   flex-direction: row;
   gap: 8px;
   justify-content: center;
+  position: relative;
 }
 
 .button-container{
 
 display: block;
 margin-bottom: -60px;
+}
+#mapcontainer {
+  overflow: hidden;
 }
 
 .container {
@@ -214,7 +218,6 @@ input {
 
 }
 
-<<<<<<< Updated upstream
 
 #table {
   margin: 0 auto;
@@ -240,8 +243,6 @@ table, th, td{
   padding-left: 30px;
   padding-right: 40px;
 }
-=======
->>>>>>> Stashed changes
 #signup {
   width: max-content;
   margin-right: 200px ;
@@ -275,9 +276,7 @@ table, th, td{
 #container {
   align-content: center;
 }
-<<<<<<< Updated upstream
 
-=======
 .container{
   margin-top: 3%;
   margin-left: 10%;
@@ -318,14 +317,13 @@ table, th, td{
     margin-left: 200px;
     left: 30%;
     width: 26%;
-    padding-top:S10%;
+    padding-top: 10%;
     padding-bottom: 1%;
     text-align: left;
     margin-top: 2%;
     border-bottom: 1px solid;
     border-color: rgb(206, 200, 192);
-  
-  } 
+  }
   
   .update{
     margin-left: 325%;
@@ -340,7 +338,6 @@ table, th, td{
     color: white;
   }
   
->>>>>>> Stashed changes
 
 #menu {
   position: absolute;
@@ -352,7 +349,6 @@ table, th, td{
   color: white;
 }
 
-<<<<<<< Updated upstream
 .column {
   float: left;
   width: 50%;
@@ -372,8 +368,8 @@ table, th, td{
   width: 100%;
   background-color: rgb(0, 0, 0);
   color: white;
-  text-align: center;
-=======
+  text-align: center;}
+
 .newtrip{
  margin: 32px;
   font-family: 'Spartan';
@@ -400,7 +396,7 @@ flex-grow: 0;
   font-weight: 400;
   font-size: 10px;
   line-height: 130%;
-  
+ 
   
   
   color: #FF6969;
@@ -414,7 +410,7 @@ flex-grow: 0;
   align-items: center;
   padding: 10px;
   gap: 20px;
-  
+  margin: auto;
   width: 292px;
   height: 37px;
   
@@ -442,7 +438,6 @@ flex-grow: 0;
   flex-direction: column;
   align-items:center ;
 
->>>>>>> Stashed changes
 }
 
 

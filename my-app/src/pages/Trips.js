@@ -26,7 +26,7 @@ async function showTrips() {
 async function onUpdate(event) {
     const update_id = event.currentTarget.id; 
     window.localStorage.setItem("trip_id", update_id);
-    navigate('/update');
+    navigate('/update-trip');
 }
 
 async function onDelete(event) {
@@ -42,14 +42,17 @@ React.useEffect(() =>{
 
 },[] )
 
+function gotoCreateTrip(){
+    navigate("/create-new-trip");
+}
 
 
     return(
         <div>
             <Header />
-            <h1>TRIPS</h1>
-            <p><Link to={"/create-new-trip"}>New trip</Link></p>
             <div id="container">
+            <p>My trips</p>
+            <button type="button" id="newTrip" onClick={gotoCreateTrip}>New trip</button>
             <table id="table">
                 <tbody>
                     <tr>
@@ -70,8 +73,8 @@ React.useEffect(() =>{
                             <td>{item.days}</td>
                             <td>{item.rating}</td>
                             <td>{item.userID}</td>
-                            <td>< RiPencilFill size ={18} onClick={onUpdate} /></td>
-                            <td>< MdDelete size={18}  onClick={onDelete}  /></td>
+                            <td>< RiPencilFill size ={18} onClick={onUpdate} id={item.id}/></td>
+                            <td>< MdDelete size={18}  onClick={onDelete} id={item.id} /></td>
                             
                         </tr>
                     ))}
