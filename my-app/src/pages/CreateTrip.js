@@ -55,17 +55,23 @@ export default function CreateTrip() {
     return(
         <div>
             <Header />
-            <h1>New trip</h1>
+            <h1 className="newtrip">New trip</h1>
             <div className="reminder">
-                <p>You must fill all mandatory fields.</p>
+            <div className="">You must fill all the mandatory list</div>
             </div>
                 <form id="trips" onSubmit={onSubmit}>
+<<<<<<< Updated upstream
                     <label>Date * </label>
+=======
+                    <div className="input">
+                    <label>Date *</label>
+>>>>>>> Stashed changes
                     <input type="date" name="date" placeholder="Select a date"/>
                     <label>Destination *</label>
                     <input type="text" name="destination" placeholder="Choose the place..." onChange={putCoordinates}/>
                     <label>Description *</label>
                     <input type="text" name="description" placeholder="How was the trip"/>
+<<<<<<< Updated upstream
                     <div className="row">
                         <div className="column">
                     <label>Days *</label>
@@ -88,6 +94,17 @@ export default function CreateTrip() {
                     </div>
                     <div className="buttonTrips">
                         <div className="buttonCol">
+=======
+                    <label>Days *</label>
+                    <input type="number" name="days" placeholder="How many days?" min="1"/>
+                    <label>Rating *</label>
+                    <input type="number" name="rating" placeholder="Rating" min="1" max="5"/>
+                    <label>Lat *</label>
+                    <input value={coordinates[0]} type="text" name="latitude" placeholder="lat" readOnly/>
+                    <label>Long *</label>
+                    <input value={coordinates[1]} type="text" name="longitude" placeholder="long" readOnly/>
+                    </div>
+>>>>>>> Stashed changes
                     <button id="cancel-btn" className="cancel" type="cancel">Cancel</button>
                     </div>
                     </div>

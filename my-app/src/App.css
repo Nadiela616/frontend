@@ -98,10 +98,8 @@ letter-spacing: 0.2px;
 
 /* Gray 2 */
 color: #4F4F4F;
-
-
-
 }
+
 
 .App {
   text-align: center;
@@ -216,6 +214,7 @@ input {
 
 }
 
+<<<<<<< Updated upstream
 
 #table {
   margin: 0 auto;
@@ -241,6 +240,8 @@ table, th, td{
   padding-left: 30px;
   padding-right: 40px;
 }
+=======
+>>>>>>> Stashed changes
 #signup {
   width: max-content;
   margin-right: 200px ;
@@ -274,7 +275,72 @@ table, th, td{
 #container {
   align-content: center;
 }
+<<<<<<< Updated upstream
 
+=======
+.container{
+  margin-top: 3%;
+  margin-left: 10%;
+  font-size: 200%;
+  border: 1px solid grey;
+  padding-top: 2%;
+  width: 75%;
+  background-color: white;
+  padding-bottom: 1.5%;
+  }
+  
+  
+  
+  table{
+    margin-left: 5%;
+    text-align: left;
+    margin-top: 0%;
+    width: 85%;
+ 
+  }
+  td,th{
+      font-size: 46.5%;
+      color: rgb(27, 26, 26);
+  }
+  table th {
+     margin-left: 200px;
+    padding-right: 50%;
+    left: 30%;
+    width: 26%;
+    padding-top: 11%;
+    padding-bottom: 1%;
+    text-align: left;
+    border-bottom: 1px solid;
+    border-color: rgb(210, 205, 199);
+  }
+
+  table td {
+    margin-left: 200px;
+    left: 30%;
+    width: 26%;
+    padding-top:S10%;
+    padding-bottom: 1%;
+    text-align: left;
+    margin-top: 2%;
+    border-bottom: 1px solid;
+    border-color: rgb(206, 200, 192);
+  
+  } 
+  
+  .update{
+    margin-left: 325%;
+    cursor: pointer;
+  }
+  .cancel{
+    margin-left: 325%;
+    cursor: pointer;
+  }
+  .tripsDiaryPage .buttonContainer .clickedColor{
+    background-color: rgb(15, 15, 15);
+    color: white;
+  }
+  
+>>>>>>> Stashed changes
 
 #menu {
   position: absolute;
@@ -286,6 +352,7 @@ table, th, td{
   color: white;
 }
 
+<<<<<<< Updated upstream
 .column {
   float: left;
   width: 50%;
@@ -306,6 +373,76 @@ table, th, td{
   background-color: rgb(0, 0, 0);
   color: white;
   text-align: center;
+=======
+.newtrip{
+ margin: 32px;
+  font-family: 'Spartan';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 120%;
+  /* identical to box height, or 29px */
+  
+  text-align: center;
+  letter-spacing: 0.261442px;
+  
+  color: #000000;
+  flex: none;
+order: 0;
+flex-grow: 0;
+}
+ 
+.reminder{
+
+
+  font-family: 'Spartan';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 130%;
+  
+  
+  
+  color: #FF6969;
+  
+  
+  /* Inside auto layout */
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 20px;
+  
+  width: 292px;
+  height: 37px;
+  
+  background: #FFC1C1;
+  
+  /* Inside auto layout */
+  
+  /* flex: none;
+  order: 1;
+  flex-grow: 0; */
+  
+  }
+  
+
+.footer {
+  position: fixed;
+  display: flex;
+  left: 0%;
+  bottom: 0;
+  Width: 100%;
+  Height :34px;
+  background: #303030;
+  color: #F5F5F5;
+  display: flex;
+  flex-direction: column;
+  align-items:center ;
+
+>>>>>>> Stashed changes
 }
 
 
