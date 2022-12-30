@@ -39,6 +39,8 @@ export default function Trips(){
                 <input type="date" name="date" placeholder="Select a date"/>
                 <label>Destination</label>
                 <input type="text" name="destination" placeholder="Select a destination"/>
+                <label>Description *</label>
+                    <textarea type="" name="description"  aria-setsize={100}  placeholder="How was the trip"/>
                 <label>Days</label>
                 <input type="number" name="days" placeholder="Select the number of days" min="1"/>
                 <label>Rating</label>

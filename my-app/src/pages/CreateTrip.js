@@ -1,41 +1,35 @@
 import Header from "../components/Header.js";
 import Footer from '../components/Footer.js';
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { useNavigate } from 'react-router-dom';
 import "../App.css";
 
 export default function CreateTrip() {
     const navigate = useNavigate();
-    const [coordinates, setCoordinates] = React.useState([]);
-    React.useEffect(()=>{
+    const [coordinates, setCoordinates] = useState([]);
+    const userId = Number(window.localStorage.getItem("user_id"))
+    const [formData, setFormData] = useState({user_id:userId,date:'',destination:'',days:'',rating:'',description:''})
+
+        useEffect(()=>{
         const checkUser = window.localStorage.getItem("user_id")
         console.log("check user",checkUser)
         if(!checkUser){
          navigate("/log-in")
         }
-        },[])
-        const onSubmit = async (event) => {
-            event.preventDefault();
-            const form = event.target;
-            const formData = new FormData(form);
-            const user_id = Number(window.localStorage.getItem("user_id"));
-            const date = formData.get("date");
-            const destination = formData.get("destination");
-            const days = formData.get("days");
-            const rating = formData.get("rating");
-            const values = { date, destination, days, rating, user_id};
-            const response = await fetch(`http://localhost:4000/api/${user_id}/trips`, {
+        },[])       
+
+        const onSubmit = async (e) =>{
+            e.preventDefault()
+            const response = await fetch(`http://localhost:4000/api/${userId}/trips`, {
                 method: 'POST', headers: {
                     'Content-Type': 'application/json'
-                }, body: JSON.stringify(values)
+                }, body: JSON.stringify(formData)
             })
             const data = await response.json();
-            console.log(data);  
-            
+            console.log(formData)
         }
-        const putCoordinates = async (event) => {
-                
-            const destination = event.target.value;
+        const putCoordinates = async (destination) => {           
+            
   
                 const response_des = await fetch(
                 `https://nominatim.openstreetmap.org/search?format=json&q=${destination}`
@@ -52,6 +46,11 @@ export default function CreateTrip() {
             
         };
     }
+
+    useEffect(()=>{
+           putCoordinates(formData.destination) 
+    },[formData.destination])
+    
     return(
         <div>
             <Header />
@@ -60,21 +59,21 @@ export default function CreateTrip() {
             <div>You must fill all the mandatory list</div>
             </div>
                 <form id="trips" onSubmit={onSubmit}>
-                    <div className="input">
+                    <div className="box">
                     <label>Date *</label>
-                    <input type="date" name="date" placeholder="Select a date"/>
+                    <input className="input" type="date" name="date"  placeholder="Select a date" onChange={(e)=>setFormData({...formData,date:e.target.value})}/>
                     <label>Destination *</label>
-                    <input type="text" name="destination" placeholder="Choose the place..." onChange={putCoordinates}/>
+                    <input  className="input" type="text" name="destination" placeholder="Choose the place..." onChange={(e)=>setFormData({...formData,destination:e.target.value})}/>
                     <label>Description *</label>
-                    <input type="text" name="description" placeholder="How was the trip"/>
+                    <textarea type="" name="description"  aria-setsize={100}  placeholder="How was the trip" onChange={(e)=>setFormData({...formData,description:e.target.value})}/>
                     <div className="row">
                         <div className="column">
                     <label>Days *</label>
-                    <input type="number" name="days" placeholder="How many days?" min="1"/>
+                    <input  type="number" name="days" placeholder="How many days?" min="1" onChange={(e)=>setFormData({...formData,days:e.target.value})}/>
                     </div>
                     <div className="column">
                     <label>Rating *</label>
-                    <input type="number" name="rating" placeholder="Rating" min="1" max="5"/>
+                    <input  type="number" name="rating" placeholder="Rating" min="1" max="5" onChange={(e)=>setFormData({...formData,rating:e.target.value})}/>
                     </div>
                     </div>
                     <div className="row">
@@ -87,17 +86,14 @@ export default function CreateTrip() {
                     <input value={coordinates[1]} type="text" name="longitude" placeholder="long" readOnly/>
                     </div>
                     </div>
-                    <div className="buttonTrips">
-                        <div className="buttonCol">
+                    <div className="buttonCancle">
                     <button id="cancel-btn" className="cancel" type="cancel">Cancel</button>
                     </div>
-                    </div>
-                    <div className="buttonTrips">
-                        <div className="buttonCol">
-                    <button id="btn" className = "buttons" type="submit" name="submit">Create</button>
+                      <div className="buttonCreate" > 
+                    <button  className = "w-20 h-10 bg-black text-white" type="submit" name="submit" onClick={onSubmit} >Create</button>
                  </div>
                  </div>
-                 </div>
+                
                 </form>
             <Footer />
         </div>   

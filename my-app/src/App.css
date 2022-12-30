@@ -32,11 +32,104 @@ h3{
   font-size: 10px;
 }
 
+#container {
+  align-content: center;
+}
+
+.container{
+  margin-top: 3%;
+  margin-left: 10%;
+  font-size: 300%;
+  padding-top: 2%;
+  padding-bottom: 1.5%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    width: 100%;
+    height: 55vh;
+    background: #F5F5F5;
+    padding: 30%;
+    border: rounded;
+  }
+ 
+inputLog{  
+   width: 350px;
+  /* margin-left: 260px;  */
+  font-size: 16px;
+  color: black;
+  border-radius: 2px;
+  position: relative;
+   /* Inside auto layout */
+   display: flex;
+   /* flex-direction: row; */
+   justify-content: center;
+   /* align-items:flex-start; */
+   /* -ms-flex-item-align: auto; */
+   padding: 10px;
+   gap: 20px;
+   margin: auto;
+   /* width:548.01px;
+   height: 40px; */
+}
+/* .form-container {
+  width: 50px;
+  margin-right: 200px;
+  margin-top: 30px;  
+} */
+  
+.str {
+background-color: #F5F5F5;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.boxLog {
+  background-color: white;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  position: relative;
+  width: 800px ;
+  font-size: 14px;
+  border-radius: 5px;
+
+}
+
+.box {
+  background-color: white;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 800px ;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+#log-button{
+  width: 380px;
+  margin-left: 40%;
+  font-size: 18px;
+  /* height: 380px; */
+  background-color: black;
+  color: white;
+  border-color: none;
+  border-radius: 8px;  
+  height: 41px;
+  margin-left: 30px;
+}
+
+
+
 .map-card{
 gap: 8px;
 width: 253px;
 height: 184px;
-background: #FFFFFF;
+background: #ffffff;
 border-radius: 20px;
 }
 
@@ -48,10 +141,11 @@ border-radius: 20px;
   height: 17px;
 }
 
+
 .map-container{
   height: 100vh;
-  
 }
+
 
 .card-body{
   display: flex;
@@ -109,6 +203,31 @@ body {
   
 }
 
+.navbar {
+  position: absolute;
+
+background: #FFFFFF;
+
+border: 1px solid #E2E5E6;
+}
+
+
+.navbar-text {
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+  padding-left: 50px;
+  color: rgba(0, 0, 0, 0.92);
+  font-weight: bold;
+}
+
+#logo-span1{
+  font-weight: 200;
+  font-size: 26px;
+  color:#000000;
+  
+}
+
 .header{
 width: 100%;
 height: 60px;
@@ -151,28 +270,11 @@ display: block;
 margin-bottom: -60px;
 }
 #mapcontainer {
-  overflow: hidden;
+  overflow:visible;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100vh;
-}
-.box {
-  background-color: white;
-  padding: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  width: 800px ;
-  font-size: 14px;
-  border-radius: 5px;
-}
+
+
 #login {
   text-align: center;
   font-size: 18px;
@@ -204,26 +306,88 @@ label {
   margin-bottom: 8px;
   color: black;
 }
-input {
+.input{  
+  width: 350px;
+  margin-left: 260px;
+}
+.input {
   display: grid;
   font-size: 16px;
-  padding: 10px 8px;
-  text-align: center;
-  align-items: center;
-  margin-left: 800px;
-  /* width: 10%; */
   font-size: 16px;
   color: black;
-  border-radius: 4px;
-
+  border-radius: 2px;
+   /* Inside auto layout */
+  
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   padding: 10px;
+   gap: 20px;
+   margin: auto;
+   width: 292px;
+   height: 37px;
 }
 
 
+
+.buttonCreate{
+  width: 53px;
+height: 17px;
+
+/* p14/medium */
+
+font-family: 'Spartan';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 120%;
+/* identical to box height, or 17px */
+
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.2px;
+
+/* black */
+
+color: #2B2B2B;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 1;
+flex-grow: 0;
+}
+
+
+.buttonCancle{
+
+  font-family: 'Spartan';
+  font-style: normal;
+  font-weight: -400;
+  font-size: 14px;
+  line-height: 120%;
+  /* identical to box height, or 17px */
+  
+  display:grid;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.2px;
+  
+  /* black */
+  
+  color: #2B2B2B;
+  
+border-radius: nullpx;
+  }
+
 #table {
   margin: 0 auto;
-  padding: 12px;
+  padding: 52px;
   text-align: center;
-  font-size: 16px;
+  font-size: 56px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: rgb(0, 0, 0);
   border: 1px solid rgb(241, 238, 238);
@@ -236,7 +400,7 @@ table, th, td{
   text-align: center;
   align-self: center;
   background-color: rgb(255, 255, 255);
-  border: 2px solid rgb(236, 230, 230);
+  border: 2px solid rgb(14, 7, 7);
   border-collapse: collapse;
   padding-top: 10px;
   padding-bottom: 20px;
@@ -263,67 +427,9 @@ table, th, td{
   height: 41px;
   margin-left: 260px;
 }
-.form-container {
-  width: 350px;
-  margin-right: 200px;
-  margin-top: 30px;  
-}
 
-.input{  
-  width: 350px;
-  margin-left: 260px;
-}
-#container {
-  align-content: center;
-}
 
-.container{
-  margin-top: 3%;
-  margin-left: 10%;
-  font-size: 200%;
-  border: 1px solid grey;
-  padding-top: 2%;
-  width: 75%;
-  background-color: white;
-  padding-bottom: 1.5%;
-  }
-  
-  
-  
-  table{
-    margin-left: 5%;
-    text-align: left;
-    margin-top: 0%;
-    width: 85%;
- 
-  }
-  td,th{
-      font-size: 46.5%;
-      color: rgb(27, 26, 26);
-  }
-  table th {
-     margin-left: 200px;
-    padding-right: 50%;
-    left: 30%;
-    width: 26%;
-    padding-top: 11%;
-    padding-bottom: 1%;
-    text-align: left;
-    border-bottom: 1px solid;
-    border-color: rgb(210, 205, 199);
-  }
 
-  table td {
-    margin-left: 200px;
-    left: 30%;
-    width: 26%;
-    padding-top: 10%;
-    padding-bottom: 1%;
-    text-align: left;
-    margin-top: 2%;
-    border-bottom: 1px solid;
-    border-color: rgb(206, 200, 192);
-  }
   
   .update{
     margin-left: 325%;
@@ -424,17 +530,34 @@ flex-grow: 0;
   
   }
   
+  
+  /* #triptab{
+    font-size: 24px;
+    line-height: 29px;
+    Line-height: 120%;
+    Align: Left;
+    vertical-align: Top;
+    letter-spacing: 0.26px;
+    
+  } */
+
+
+#mapB{
+  display:grid;
+ background-color: #ffffff;
+ align-items: initial;
+ text-decoration-color: #000000;
+}
 
 .footer {
   position: fixed;
   display: flex;
-  left: 0%;
-  bottom: 0;
+  /* left: 0%;
+  bottom: 0; */
   Width: 100%;
   Height :34px;
   background: #303030;
   color: #F5F5F5;
-  display: flex;
   flex-direction: column;
   align-items:center ;
 

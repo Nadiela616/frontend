@@ -44,16 +44,24 @@ export default function SettingsProfile(){
           <div className="personal-info">
             <h2>Personal Information</h2>
               <div className='form-container'>
-                <form  onSubmit={onSubmit}>                  
+                <form  onSubmit={onSubmit}>  
+                <div>              
                     <label htmlFor='email'>Email</label>
                     <input type="email" className='input' id="email" name="email" placeholder="Insert your email" required/>   
-                    <button type="button" id="form-button"  name="save">Save</button>       
+                    </div> 
+                     <button type="button" id="form-button"  name="save">Save</button>       
                 </form>
                 <h2>Security</h2>
-                <form  onSubmit={onSubmit}>                              
+                <form  onSubmit={onSubmit}>  
+                <div>                           
+                <div className='passChange'>
                     <label htmlFor="password">Password</label>
                     <input type="password" className='input' id="currentpassword" name="current_password" placeholder="Insert current password" required/>
+                    <div>
                     <input type="password" className='input' id="newpassword" name="password" placeholder="Insert new password" required/>
+                    </div>
+                    </div>
+                    </div>
                     <button  type="button" id="form-button" name="save">Save</button>
                     {error?<p>Username or password invalid!</p>:null}                  
                 </form>

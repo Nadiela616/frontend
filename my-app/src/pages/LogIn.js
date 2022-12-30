@@ -1,4 +1,4 @@
-import Header from '../components/Header.js';
+import Navbar from '../components/Navbar';
 import Footer from '../components/Footer.js';
 import React from 'react';
 import {Link} from 'react-router-dom';
@@ -41,21 +41,23 @@ export default function LogIn(){
     }
   };
     return (
-     <div>
-       <Header />
-         <div className="container">  
-          <div className="box">
-            <h1>Login</h1>
-              <div className='form-container'>
-                <form  onSubmit={onSubmit}>                  
-                    <label htmlFor='email'>Email</label>
-                    <input type="email" className='input' id="email" name="email" placeholder="Choose your email" required/>                  
-                    <label htmlFor="password">Password:</label>
-                    <input type="password" className='input' id="password" name="password" placeholder="Choose your password" required/>
-                    <p className='input'>You're not a user yet? <Link to={"/"}>Sign up</Link></p>
-                    <button  type="submit" id="form-button" name="submit">Enter</button>
-                    {error?<p>Username or password invalid!</p>:null}                  
-                </form>
+     <div className='bg-[#F5F5F5]'>
+       <Navbar />
+         <div className="w-11/2 h-screen  justify-center items-center flex ">  
+          <div className="box-flex">
+            <h1 className='text-center'>Login</h1>
+              <div className='flex flex-col justify-center items-center'>
+                <div className='pt-10' >
+                  <form  onSubmit={onSubmit}>                  
+                      <label htmlFor='email' className='mr-56'>Email</label>
+                      <input type="email" className='w-full' id="email" name="email" placeholder="Choose your email" required/>                  
+                      <label htmlFor="password" className='mr-56'>Password</label>
+                      <input type="password" className='w-full' id="password" name="password" placeholder="Choose your password" required/>
+                      <p className='input'>You're not a user yet? <Link to={"/"}>Sign up</Link></p>
+                      {error?<p>Username or password invalid!</p>:null}                  
+                      <button  type="submit" className='w-full h-10 bg-black rounded-md text-lg' name="submit">Enter</button>
+                  </form>
+                </div>
               </div>
             </div>
         </div> 

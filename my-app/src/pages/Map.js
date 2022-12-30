@@ -5,6 +5,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useState } from "react";
 // import { Icon } from "leaflet";
 import Footer from "../components/Footer";
+// import "../map.css";
 
 
 export default function App() {
@@ -42,10 +43,10 @@ export default function App() {
           <div  className="button-container">
         <div className="button-block">
           <div className="button-map" >
-            <button type="button">Map</button>
+            <button  id="mapB"  type="button">Map</button>
           </div>
           <div className="button-table">
-            <button type="button">Table</button>
+            <button id="tableB" type="button">Table</button>
           </div>
           </div>
         </div>
@@ -72,3 +73,4 @@ export default function App() {
     </div>
   );
 }
+

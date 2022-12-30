@@ -9,6 +9,7 @@ import Map from './pages/Map.js';
 import Trips from './pages/Trips.js';
 import CreateTrip from './pages/CreateTrip.js';
 import UpdateTrip from './pages/UpdateTrip.js';
+import Check from './pages/Check.js';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path='/trips' element={<Trips/>}></Route>
         <Route path='/create-new-trip' element={<CreateTrip/>}></Route>
         <Route path='/update-trip' element={<UpdateTrip/>}></Route>
+        <Route path='/update-check' element={<Check/>}></Route>
       </Routes>
     </BrowserRouter>
     );
