@@ -16,6 +16,7 @@ export default function Trips(){
          navigate("/log-in")
         }
        },[])
+       
 async function showTrips() {
     const user_id = Number(window.localStorage.getItem("user_id"));
     const response = await fetch(`http://localhost:4000/api/${user_id}/trips`);
