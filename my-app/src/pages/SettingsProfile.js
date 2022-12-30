@@ -7,7 +7,6 @@ import '../App.css';
 export default function SettingsProfile(){
   const [email_error,setEmailError] = React.useState(null);
   const [password_error,setPasswordError] = React.useState(null);
-  // const [passwordLoggedIn,setPassword] = React.useState(null);
   const navigate = useNavigate();
   React.useEffect(()=>{
    const checkUser = window.localStorage.getItem("user_id")
