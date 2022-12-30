@@ -1,13 +1,14 @@
 import Header from "../components/Header.js";
 import Footer from '../components/Footer.js';
 import React from "react";
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import "../App.css";
 import { RiPencilFill } from 'react-icons/ri';
 import {MdDelete} from 'react-icons/md';
 
 export default function Trips(){
     const [table, setTable] = React.useState([]);
+    const [trip, setTrip] = React.useState([]);
     const navigate = useNavigate();
     React.useEffect(()=>{
         const checkUser = window.localStorage.getItem("user_id")
@@ -15,39 +16,38 @@ export default function Trips(){
         if(!checkUser){
          navigate("/log-in")
         }
-       },[])
-       
-async function showTrips() {
-    const user_id = Number(window.localStorage.getItem("user_id"));
-    const response = await fetch(`http://localhost:4000/api/${user_id}/trips`);
-    const data = await response.json();
-    setTable(data);      
-}   
+    },[])
 
-async function onUpdate(event) {
-    const update_id = event.currentTarget.id; 
-    window.localStorage.setItem("trip_id", update_id);
-    navigate('/update-trip');
-}
+    async function showTrips() {
+        const user_id = Number(window.localStorage.getItem("user_id"));
+        const response = await fetch(`http://localhost:4000/api/${user_id}/trips`);
+        const data = await response.json();
+        console.log(data);
+        setTable(data);      
+        setTrip(data);
+    }   
 
-async function onDelete(event) {
-    const delete_id = event.currentTarget.id; 
-    await fetch(`http://localhost:4000/api/trips/${delete_id}`, {
-        method: 'DELETE'
-    })
-    window.alert("Trip deleted!");
-}
+    async function onUpdate(event) {
+        const update_id = event.currentTarget.id; 
+        window.localStorage.setItem("trip_id", update_id);
+        navigate('/update-trip');
+    }
 
-React.useEffect(() =>{
- showTrips();   
+    async function onDelete(event) {
+        const delete_id = event.currentTarget.id; 
+        await fetch(`http://localhost:4000/api/trips/${delete_id}`, {
+            method: 'DELETE'
+        })
+        window.alert("Trip deleted!");
+    }
 
-},[] )
-
-function gotoCreateTrip(){
-    navigate("/create-new-trip");
-}
-
-
+    
+    showTrips();   
+    
+    
+    function gotoCreateTrip(){
+            navigate("/create-new-trip");
+    }
     return(
         <div>
             <Header />
@@ -75,14 +75,19 @@ function gotoCreateTrip(){
                             <td>{item.rating}</td>
                             <td>{item.userID}</td>
                             <td>< RiPencilFill size ={18} onClick={onUpdate} id={item.id}/></td>
-                            <td>< MdDelete size={18}  onClick={onDelete} id={item.id} /></td>
-                            
+                            <td>< MdDelete size={18}  onClick={onDelete} id={item.id} /></td>  
                         </tr>
-                    ))}
+                   ) )}
                 </tbody>
             </table>
+            {trip.map((item) => {
+                window.localStorage.setItem("date", item.date);
+                window.localStorage.setItem("destination", item.destination);
+                window.localStorage.setItem("days", item.days);
+                window.localStorage.setItem("rating", item.rating);
+            } )}
             </div>
-            <Footer />
+          
         </div>   
     )
 }

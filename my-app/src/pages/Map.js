@@ -1,5 +1,6 @@
 import "../styles.css";
 import Header from "../components/Header.js";
+import { useNavigate } from 'react-router-dom';
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useState } from "react";
@@ -9,7 +10,7 @@ import Footer from "../components/Footer";
 
 export default function App() {
   const [coordinates, setCoordinates] = useState([]);
-
+  const navigate = useNavigate();
   async function getCoordinates(e) {
     e.preventDefault();
     const form = e.target;
@@ -29,39 +30,39 @@ export default function App() {
       setCoordinates(nextState);
     }
   }
+  function gotoMap(){
+    navigate("/map");
+  }
+  function gotoTable(){
+    navigate("/trips");
+  }
 
   return (
     <div>
       <Header />
-
-      <div className="map-container">
       
-        <MapContainer center={[51.505, -0.09]} zoom={3} scrollWheelZoom={false} id="mapcontainer">
-
-          <TileLayer url="https://{s}.tile.osm.org/{z}/{x}/{y}.png" />
-          <div  className="button-container">
         <div className="button-block">
           <div className="button-map" >
-            <button type="button">Map</button>
+            <button type="button" onClick={gotoMap}>Map</button>
           </div>
           <div className="button-table">
-            <button type="button">Table</button>
+            <button type="button" onClick={gotoTable}>Table</button>
           </div>
           </div>
-        </div>
+        
+      <div className="map-container">
+      
+        <MapContainer center={[51.505, -0.09]} zoom={4} scrollWheelZoom={false}  id="mapcontainer">
+  
+          <TileLayer url="https://{s}.tile.osm.org/{z}/{x}/{y}.png" />
+         
           {coordinates.map(({ lat, lon, destination }, index) => (
             <Marker key={index} position={[lat, lon]}>
               <Popup>
                 <div className="map-card">
-                  <div className="card-header">
-                    <p className="p14">10-2022</p>
-                    <p className="p14">5 days</p>
-                  </div>
-                  <div className="card-body">
-                    <h3 id="card-country">France</h3>
-                    <h1 id="card-city">{destination}</h1>
-                    <p id="card-p">Paris is fantastic, but cold as hell.</p>
-                  </div>
+                 <form>
+
+                 </form>
                 </div>
               </Popup>
             </Marker>

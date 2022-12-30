@@ -1,7 +1,7 @@
 import Header from "../components/Header.js";
 import Footer from '../components/Footer.js';
 import React from "react";
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import "../App.css";
 
 export default function CreateTrip() {
@@ -21,9 +21,12 @@ export default function CreateTrip() {
             const user_id = Number(window.localStorage.getItem("user_id"));
             const date = formData.get("date");
             const destination = formData.get("destination");
+            const description = formData.get("description");
+            window.localStorage.setItem("description", description);
             const days = formData.get("days");
             const rating = formData.get("rating");
             const values = { date, destination, days, rating, user_id};
+
             const response = await fetch(`http://localhost:4000/api/${user_id}/trips`, {
                 method: 'POST', headers: {
                     'Content-Type': 'application/json'
@@ -31,6 +34,7 @@ export default function CreateTrip() {
             })
             const data = await response.json();
             console.log(data);  
+            navigate("/trips");
             
         }
         const putCoordinates = async (event) => {
@@ -56,25 +60,22 @@ export default function CreateTrip() {
         <div>
             <Header />
             <h1 className="newtrip">New trip</h1>
-            <div className="reminder">
-            <div>You must fill all the mandatory list</div>
-            </div>
-                <form id="trips" onSubmit={onSubmit}>
+            <form id="trips" onSubmit={onSubmit}>
                     <div className="input">
                     <label>Date *</label>
-                    <input type="date" name="date" placeholder="Select a date"/>
+                    <input type="date" name="date" placeholder="Select a date" required/>
                     <label>Destination *</label>
-                    <input type="text" name="destination" placeholder="Choose the place..." onChange={putCoordinates}/>
+                    <input type="text" name="destination" placeholder="Choose the place..." onChange={putCoordinates} required/>
                     <label>Description *</label>
-                    <input type="text" name="description" placeholder="How was the trip"/>
+                    <input type="text" name="description" placeholder="How was the trip" required/>
                     <div className="row">
                         <div className="column">
                     <label>Days *</label>
-                    <input type="number" name="days" placeholder="How many days?" min="1"/>
+                    <input type="number" name="days" placeholder="How many days?" min="1" required/>
                     </div>
                     <div className="column">
                     <label>Rating *</label>
-                    <input type="number" name="rating" placeholder="Rating" min="1" max="5"/>
+                    <input type="number" name="rating" placeholder="Rating" min="1" max="5" required/>
                     </div>
                     </div>
                     <div className="row">
