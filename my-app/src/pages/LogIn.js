@@ -43,17 +43,17 @@ export default function LogIn(){
     return (
      <div className='bg-[#F5F5F5]'>
        <Navbar />
-         <div className="w-11/2 h-screen  justify-center items-center flex ">  
-          <div className="box-flex">
+         <div className=" h-screen justify-center items-center flex ">  
+          <div className="box-flex ">
             <h1 className='text-center'>Login</h1>
-              <div className='flex flex-col justify-center items-center'>
-                <div className='pt-10' >
+              <div className='flex flex-col justify-center w-3/4   items-center'>
+                <div className='pt-10 w-1/2' >
                   <form  onSubmit={onSubmit}>                  
                       <label htmlFor='email' className='mr-56'>Email</label>
-                      <input type="email" className='w-full' id="email" name="email" placeholder="Choose your email" required/>                  
+                      <input type="email" className='w-full h-10' id="email" name="email" placeholder="Choose your email" required/>                  
                       <label htmlFor="password" className='mr-56'>Password</label>
-                      <input type="password" className='w-full' id="password" name="password" placeholder="Choose your password" required/>
-                      <p className='input'>You're not a user yet? <Link to={"/"}>Sign up</Link></p>
+                      <input type="password" className='w-full h-10' id="password" name="password" placeholder="Choose your password" required/>
+                      <p className='w-full lg:ml-8'>You're not a user yet? <Link to={"/"}>Sign up</Link></p>
                       {error?<p>Username or password invalid!</p>:null}                  
                       <button  type="submit" className='w-full h-10 bg-black rounded-md text-lg' name="submit">Enter</button>
                   </form>

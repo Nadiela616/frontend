@@ -39,7 +39,7 @@ const Table = ({data}) => {
                             <td>{item.destination}</td>
                             <td>{item.days}</td>
                             <td>{item.rating}</td>
-                            <td>{item.userID}</td>
+                            <td>{item.user_id}</td>
                             <td>< RiPencilFill size ={18} onClick={onUpdate} id={item.id}/></td>
                             <td>< MdDelete size={18}  onClick={onDelete} id={item.id} /></td>
                             

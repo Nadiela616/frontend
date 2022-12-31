@@ -14,8 +14,7 @@ export default function Trips() {
     const [data, setData] = useState([])
         useEffect(()=>{
             const checkUser = window.localStorage.getItem("user_id")
-            console.log("check user",checkUser)
-            if(!checkUser){
+             if(!checkUser){
              navigate("/log-in")
             }
            },[])

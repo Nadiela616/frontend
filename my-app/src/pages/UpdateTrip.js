@@ -24,8 +24,7 @@ export default function UpdateTrip(){
             }, body: JSON.stringify(values)
         })
         const data = await response.json();
-        console.log(data);
-        window.alert('The trip was updated!');
+         window.alert('The trip was updated!');
         navigate('/trips');
 };
     const putCoordinates = async (event) => {
@@ -41,49 +40,50 @@ export default function UpdateTrip(){
             data_des[0].lat,
             data_des[0].lon,
         ];
-        console.log(data_des);
-        const nextState = trip;
+         const nextState = trip;
         setCoordinates(nextState);
         
     };
  }
     return(
-        <div>
+        <div className='bg-[#F5F5F5]'>
             <Header />
-            <div className="w-11/2 h-screen  justify-center items-center flex">
-                <div className="box-flex">                    
-                    <h2 className="text-center">Update #{window.localStorage.getItem("trip_id")}</h2>
-                    <div className="flex flex-col gap-2 justify-center items-center ">
-                        <form id="trips" onSubmit={onSubmit}>
-                            <label className="mr-64">Date *</label>
-                            <input className='w-full' type="date" defaultValue={window.localStorage.getItem("date")} name="date" placeholder="Select a date" required/>
-                            <label className="mr-56">Destination *</label>
-                            <input className='w-full' type="text" defaultValue={window.localStorage.getItem("destination")} name="destination" placeholder="Choose the place..." onChange={putCoordinates} required/>
-                            <label className="mr-56">Description *</label>
-                            <textarea type=""  defaultValue={window.localStorage.getItem("description")} name="description"  aria-setsize={100}  placeholder="How was the trip" required/>
-                            <div className="flex gap-2"> 
+            <div className=" h-screen  justify-center items-center flex">
+                <div className="bg-white w-[800px] text-sm  rounded-2xl  flex flex-col justify- items-center py-6">                    
+                    <h2 className="text-center mt-8">Update #{window.localStorage.getItem("trip_id")}</h2>
+                    <div className="flex flex-col w-3/4  justify-center items-center ">
+                        <form  onSubmit={onSubmit}>
+                            <label className="mr-64 ">Date *</label>
+                            <input className='w-full h-10 ' type="date" defaultValue={window.localStorage.getItem("date")} name="date" placeholder="Select a date" required/>
+                            <label className="mr-56 mt-2">Destination *</label>
+                            <input className='w-full h-10' type="text" defaultValue={window.localStorage.getItem("destination")} name="destination" placeholder="Choose the place..." onChange={putCoordinates} required/>
+                            <label className="mr-56 mt-2">Description *</label>
+                            <div className="">
+                                <textarea type="text" className="w-full mt-2 h-30"  defaultValue={window.localStorage.getItem("description")} name="description" aria-setsize={100}   placeholder="How was the trip" required/>
+                            </div>
+                            <div className="flex mt-4 gap-2"> 
                                 <div>
                                     <label >Days *</label>
-                                    <input type="text" defaultValue={window.localStorage.getItem("days")} name="days" placeholder="How many days?" min="1" required/>
+                                    <input type="text" className=" ml-3 h-10" defaultValue={window.localStorage.getItem("days")} name="days" placeholder="How many days?" min="1" required/>
                                 </div>
                                 <div>
                                     <label >Rating *</label>
-                                    <input type="text" defaultValue={window.localStorage.getItem("rating")} name="rating" placeholder="Rating" min="1" max="5" required/>
+                                    <input type="text" className=" ml-3 h-10" defaultValue={window.localStorage.getItem("rating")} name="rating" placeholder="Rating" min="1" max="5" required/>
                                 </div>
                             </div>
-                            <div className="flex gap-2">
+                            <div className="flex mt-2 gap-2">
                                 <div>
                                     <label >Lat *</label>
-                                    <input value={coordinates[0]} type="text" name="latitude" placeholder="lat" readOnly/>
+                                    <input value={coordinates[0]} className=" ml-3 h-10" type="text" name="latitude" placeholder="lat" readOnly/>
                                 </div>
                                 <div>
                                     <label >Long *</label>
-                                    <input value={coordinates[1]} type="text" name="longitude" placeholder="long" readOnly/>
+                                    <input value={coordinates[1]} className=" ml-3 h-10" type="text" name="longitude" placeholder="long" readOnly/>
                                 </div>
                             </div>
-                            <div className="flex w-full gap-2">
-                                <button className="w-full h-10 bg-[#f5f5f5f5] text-black rounded-md text-lg"  type="cancel">Cancel</button>
-                                <button  className="w-full h-10 bg-black rounded-md text-lg" type="submit" name="submit">Update</button>
+                            <div className="flex justify-center mt-4 pb-8 w-full gap-2">
+                                <button className="w-20 h-10 bg-[#f5f5f5f5] text-black rounded-md text-lg"  type="cancel">Cancel</button>
+                                <button  className="w-60 h-10 bg-black rounded-md text-lg" type="submit" name="submit">Update</button>
                             </div>
                         </form>
                     </div>
