@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { BiMap } from 'react-icons/bi';
+
 
 const Map = ({ trips }) => {   
 
