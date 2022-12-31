@@ -5,7 +5,6 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Table = ({data}) => {    
     const navigate = useNavigate();
-    console.log(data[0])
     async function onUpdate(event) {
         const update_id = event.currentTarget.id; 
         window.localStorage.setItem("trip_id", update_id);

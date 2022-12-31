@@ -2,14 +2,15 @@ import Header from "../components/Header.js";
 import Footer from '../components/Footer.js';
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
-import "../App.css";
 import { FiMap } from 'react-icons/fi'
 import { HiOutlineTableCells } from 'react-icons/hi2'
 import Table from "../components/Table.js";
+import Map from "../components/Map.js";
 
 export default function Trips() {
 
     const navigate = useNavigate()
+        const [isMap, setIsMap] = useState(false)
     const [data, setData] = useState([])
         useEffect(()=>{
             const checkUser = window.localStorage.getItem("user_id")
@@ -47,13 +48,13 @@ export default function Trips() {
                 <div className=" flex justify-center  w-11/12 h-screen">
                     <div>
                         <div className="  flex gap-6 justify-center h-10 mt-10">
-                            <div className="flex rounded-lg justify-center gap-2 p-6  items-center bg-white">
+                            <div className={isMap?"flex rounded-lg justify-center gap-2 p-6 items-center hover:bg-stone-800 bg-[#2B2B2B] text-white" :"flex rounded-lg justify-center gap-2 p-6  items-center bg-[#f5f5f5]"} onClick={() =>setIsMap(true)}>
                                 <div className="mb-2">
                                     <FiMap size={20} />
                                 </div>
                                 <h3 className="text-sm">Maps</h3>
                             </div>
-                            <div className="flex rounded-lg justify-center gap-2 p-6 items-center hover:bg-stone-800 bg-[#2B2B2B] text-white">
+                            <div className={isMap?"flex rounded-lg justify-center gap-2 p-6  items-center bg-[#f5f5f5]":"flex rounded-lg justify-center gap-2 p-6 items-center hover:bg-stone-800 bg-[#2B2B2B] text-white"} onClick={() =>setIsMap(false)}>
                                 <div className="mb-2">
                                     <HiOutlineTableCells size={25} />
                                 </div>
@@ -65,8 +66,13 @@ export default function Trips() {
                             <button className="w-20 h-12 bg-[#FF6969] text-white rounded-xl hover:bg-[#FF6960]" onClick={() =>navigate('/create-new-trip')} >New Trip</button>
                         </div>
                         <div className="mt-5">
-                            <Table data={data} />
+                            {isMap?
+                            <Map trips={data} />
+                            :<Table data={data} />
+                            
+                        }
                         </div>
+                        
 
                     </div>
                 </div>

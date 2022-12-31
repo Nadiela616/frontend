@@ -26,11 +26,8 @@ export default function CreateTrip() {
                 }, body: JSON.stringify(formData)
             })
             const data = await response.json();
-            console.log(formData)
         }
-        const putCoordinates = async (destination) => {           
-            
-  
+        const putCoordinates = async (destination) => {  
                 const response_des = await fetch(
                 `https://nominatim.openstreetmap.org/search?format=json&q=${destination}`
               );
@@ -40,10 +37,8 @@ export default function CreateTrip() {
                 data_des[0].lat,
                 data_des[0].lon,
             ];
-            console.log(data_des);
             const nextState = trip;
-            setCoordinates(nextState);
-            
+            setCoordinates(nextState);            
         };
     }
 
@@ -58,7 +53,7 @@ export default function CreateTrip() {
             <div className="reminder">
             <div>You must fill all the mandatory list</div>
             </div>
-                <form id="trips" onSubmit={onSubmit}>
+                <form onSubmit={onSubmit}>
                     <div className="box">
                     <label>Date *</label>
                     <input className="input" type="date" name="date"  placeholder="Select a date" onChange={(e)=>setFormData({...formData,date:e.target.value})}/>
@@ -66,34 +61,27 @@ export default function CreateTrip() {
                     <input  className="input" type="text" name="destination" placeholder="Choose the place..." onChange={(e)=>setFormData({...formData,destination:e.target.value})}/>
                     <label>Description *</label>
                     <textarea type="" name="description"  aria-setsize={100}  placeholder="How was the trip" onChange={(e)=>setFormData({...formData,description:e.target.value})}/>
-                    <div className="row">
-                        <div className="column">
-                    <label>Days *</label>
-                    <input  type="number" name="days" placeholder="How many days?" min="1" onChange={(e)=>setFormData({...formData,days:e.target.value})}/>
+                    <div className="flex gap-2">
+                        <div>
+                            <label>Days *</label>
+                            <input  type="text" name="days" placeholder="How many days?" min="1" onChange={(e)=>setFormData({...formData,days:e.target.value})}/>
+                        </div>
+                        <div>
+                            <label>Rating *</label>
+                            <input  type="number" name="rating" placeholder="Rating" min="1" max="5" onChange={(e)=>setFormData({...formData,rating:e.target.value})}/>
+                        </div>
                     </div>
-                    <div className="column">
-                    <label>Rating *</label>
-                    <input  type="number" name="rating" placeholder="Rating" min="1" max="5" onChange={(e)=>setFormData({...formData,rating:e.target.value})}/>
-                    </div>
-                    </div>
-                    <div className="row">
-                        <div className="column">
+                    <div className="flex gap-2">
                         <label>Lat *</label>
-                    <input value={coordinates[0]} type="text" name="latitude" placeholder="lat" readOnly/>
-                    </div>
-                    <div className="column">
-                    <label>Long *</label>
-                    <input value={coordinates[1]} type="text" name="longitude" placeholder="long" readOnly/>
-                    </div>
-                    </div>
-                    <div className="buttonCancle">
-                    <button id="cancel-btn" className="cancel" type="cancel">Cancel</button>
-                    </div>
-                      <div className="buttonCreate" > 
-                    <button  className = "w-20 h-10 bg-black text-white" type="submit" name="submit" onClick={onSubmit} >Create</button>
-                 </div>
-                 </div>
-                
+                        <input value={coordinates[0]} type="text" name="latitude" placeholder="lat" readOnly/>
+                        <label>Long *</label>
+                        <input value={coordinates[1]} type="text" name="longitude" placeholder="long" readOnly/>                    
+                    </div>  
+                    <div className="flex gap-2">
+                        <button className="w-20 h-10 rounded-md bg-[#f5f5f5]" type="cancel">Cancel</button>                    
+                        <button  className = "w-20 h-10 rounded-md bg-black text-white" type="submit" name="submit" onClick={onSubmit} >Create</button>
+                    </div> 
+                 </div>                
                 </form>
             <Footer />
         </div>   
